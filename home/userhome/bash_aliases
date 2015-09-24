@@ -1,0 +1,7 @@
+if [ -f "/usr/ucb/ps" ]; then
+    #Solaris patch
+    alias pps="/usr/ucb/ps auxwww"
+else
+    alias pps="ps auxwww"
+fi
+alias ppg="pps | grep -v grep | grep $1"

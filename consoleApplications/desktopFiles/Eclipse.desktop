@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Eclipse
+GenericName=Eclipse Juno-Entorno de Desarrollo Integrado
+X-GNOME-FullName=Eclipse Luna
+Comment=Entorno de desarollo integrado para múltiples lenguajes de programación
+Type=Application
+Categories=Application;Development;Utility;
+Exec=/opt/eclipse/eclipse
+TryExec=/opt/eclipse/eclipse
+Terminal=false
+StartupNotify=true
+Icon=/opt/eclipse/icon.xpm

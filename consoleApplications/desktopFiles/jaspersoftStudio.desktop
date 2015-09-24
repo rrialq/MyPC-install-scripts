@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Jaspersoft Studio
+GenericName=Jaspersoft Studio
+X-GNOME-FullName=Jaspersoft Studio
+Comment=Editor de informes de Jaspersoft
+Type=Application
+Categories=Development
+Exec=/opt/jaspersoftstudio/Jaspersoft\ Studio
+TryExec=/opt/jaspersoftstudio/runubuntu.sh
+Terminal=false
+StartupNotify=true
+Icon=/opt/jaspersoft/icon.xpm

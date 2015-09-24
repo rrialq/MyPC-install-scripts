@@ -1,0 +1,58 @@
+#Common functions
+
+OS=$(lsb_release -si)
+ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+VER=$(lsb_release -sr)
+
+ERROR_LUBUNTU_NOT_DETECTED=10
+ERROR_SUDO_NOT_DETECTED=20
+ERROR_SUDO_DETECTED=21
+ERROR_NOT_ARGUMENTS=30
+ERROR_NOT_DIRECTORY_OR_NOT_WRITABLE=40
+
+ERROR_MESSAGES[${ERROR_LUBUNTU_NOT_DETECTED}]='This script (${commonScriptName}) is designed only to Lubuntu'
+ERROR_MESSAGES[${ERROR_SUDO_NOT_DETECTED}]='This script needs sudo.'
+ERROR_MESSAGES[${ERROR_SUDO_DETECTED}]='This script does not works as sudo.'
+ERROR_MESSAGES[${ERROR_NOT_ARGUMENTS}]='For caution you must provide an argument, that will be the installation dir.'
+ERROR_MESSAGES[${ERROR_NOT_DIRECTORY_OR_NOT_WRITABLE}]='The directory [$1] must exists, and you need the write permission.'
+
+
+showError() {
+	printf "[ERROR] [$commonScriptName] ${ERROR_MESSAGES[${1}]}\n"
+}
+
+exitIfNotLubuntu() {
+	if [ "${DESKTOP_SESSION}" != "Lubuntu" ]; then
+		showError ${ERROR_LUBUNTU_NOT_DETECTED}
+		exit ${ERROR_LUBUNTU_NOT_DETECTED};
+	fi
+}
+
+exitIfNotArguments() {
+	if [ "$1" == "" ]; then
+		showError ${ERROR_NOT_ARGUMENTS}
+		exit ${ERROR_NOT_ARGUMENTS}
+	fi
+}
+
+exitIfSudo() {
+	if [ "$(whoami)" == "root" ]; then
+		showError ${ERROR_SUDO}
+		exit ${ERROR_SUDO}
+	fi
+}
+
+exitIfNotSudo() {
+	if [ "$(whoami)" != "root" ]; then
+		showError ${ERROR_NOT_SUDO}
+		exit ${ERROR_NOT_SUDO}
+	fi
+}
+
+#Does not works as expected if user is sudo
+exitIfNotDirectoryOrWritable() {
+	if [ ! -d "$1" ] || [ ! -w "$1" ]; then
+		showError ${ERROR_NOT_DIRECTORY_OR_NOT_WRITABLE} "$1"
+		exit ${ERROR_NOT_DIRECTORY_OR_NOT_WRITABLE}
+	fi
+}

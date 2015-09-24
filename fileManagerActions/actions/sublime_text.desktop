@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name = Abrir con Sublime Text
+Tooltip = Abre un archivo o carpeta con el editor Sublime Text
+Icon = sublime-text
+Profiles = on_folder; on_file;
+
+[X-Action-Profile on_folder]
+Name = Abre la carpeta actual con el editor Sublime Text
+MimeTypes = inode/directory;
+# note that this means strictly less than 2, as the equal sign is part of the DES syntax
+SelectionCount = < 2
+Exec = subl %d
+
+[X-Action-Profile on_file]
+Name = Abre el archivo actual con Sublime Text
+MimeTypes = all/allfiles;
+Exec =  subl %f
