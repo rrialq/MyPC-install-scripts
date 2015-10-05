@@ -21,13 +21,6 @@ done
 grep -Fq "# ${0}: NEW PS1: " "${HOME}/.bashrc"
 
 if [ "$?" != "0" ]; then
-	#printf "\n\n# ${0}: NEW PS1: Last folder of current path, and colorized\n" >> ~/.bashrc
-	#printf "export PS1='\[\e]0;\w\a\]" >> "${HOME}/.bashrc"
-	#printf \\  >> "${HOME}/.bashrc"
-	#printf "n '" >> "${HOME}/.bashrc"
-	#printf "n\[\e[1;32m\]\h \[\e[1;33m\]\w\[\e[1;0m\]\$ '\n" >> "${HOME}/.bashrc"
 	printf "\n\n# ${0}: NEW PS1: Last folder of current path, and colorized\n" >> ~/.bashrc
-	printf "export PS1='\[\e[38;5;45m\]" >> "${HOME}/.bashrc"
-	printf \\ >> "${HOME}/.bashrc"
-	printf "u@\[\e[0m\] \[\e[38;5;221m\]\w\[\e[0m\] \[\e[38;5;105m\]\$\[\e[0m\] '" >> "${HOME}/.bashrc"
+	printf "export PS1='\[[38;5;45m\]\\\u@\[[0m\] \[[38;5;221m\]\w\[[0m\] \[[38;5;105m\]$\[[0m\] '\n" >> ${HOME}/.bashrc
 fi
