@@ -27,7 +27,7 @@ if [ "$?" != "0" ]; then
 	#printf "n '" >> "${HOME}/.bashrc"
 	#printf "n\[\e[1;32m\]\h \[\e[1;33m\]\w\[\e[1;0m\]\$ '\n" >> "${HOME}/.bashrc"
 	printf "\n\n# ${0}: NEW PS1: Last folder of current path, and colorized\n" >> ~/.bashrc
-	printf "export PS1='\[\e[0;32m\]" >> "${HOME}/.bashrc"
+	printf "export PS1='\[\e[38;5;45m\]" >> "${HOME}/.bashrc"
 	printf \\ >> "${HOME}/.bashrc"
-	printf "u@\[\e[m\] \[\e[0;34m\]\w\[\e[m\] \[\e[0;32m\]\$\[\e[m\] '" >> "${HOME}/.bashrc"
+	printf "u@\[\e[0m\] \[\e[38;5;221m\]\w\[\e[0m\] \[\e[38;5;105m\]\$\[\e[0m\] '" >> "${HOME}/.bashrc"
 fi
