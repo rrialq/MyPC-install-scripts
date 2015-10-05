@@ -23,5 +23,5 @@ grep -Fq "# ${0}: NEW PS1: " "${HOME}/.bashrc"
 if [ "$?" != "0" ]; then
 	printf "\n\n# ${0}: NEW PS1: Last folder of current path, and colorized\n" >> ~/.bashrc
 	#Something like "user@current/folder $"
-	printf "export PS1='\[[38;5;45m\]\\\u@\[[0m\]\[[38;5;221m\]\w\[[0m\] \[[38;5;105m\]$\[[0m\] '\n" >> ${HOME}/.bashrc
+	printf "export PS1='\[[38;5;45m\] \\\u@\[[0m\]\[[38;5;221m\]\w\[[0m\] \[[38;5;105m\]$\[[0m\] '\n" >> ${HOME}/.bashrc
 fi
